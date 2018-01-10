@@ -1,0 +1,20 @@
+<div class="opendash-widget-kpi-overview" style="text-align: center; padding: 10px; width: 100%; height: 100%;">
+  <div id="widget-content-header">
+      <div id="widget-content-header-image" ng-if="$ctrl.left">
+          <img ng-if="$ctrl.config.icon" id="widget-content-header-image-img" ng-src="{{$ctrl.config.icon}}" alt="Icon">       
+      </div>
+      <div id="widget-content-header-text">
+        <div id="widget-content-header-text-border">
+          <fit-text  id="widget-content-header-text-border-first" text="$ctrl.dataValue" ></fit-text>
+          <!--<fit-text ftgroup="$ctrl.ftgroup2" ng-if="$ctrl.nameValue" id="widget-content-header-text-border-second" fttext="$ctrl.nameValue" ftwidth="'100%'" ftheight="'20%'"></fit-text>
+          <fit-text ftgroup="$ctrl.ftgroup3" ng-if="$ctrl.timeValue" id="widget-content-header-text-border-second" fttext="$ctrl.timeValue" ftwidth="'100%'" ftheight="'15%'"></fit-text>-->
+        </div>
+      </div>
+      <div id="widget-content-header-image" ng-if="$ctrl.right">
+          <img ng-if="$ctrl.config.icon" id="widget-content-header-image-img" ng-src="{{$ctrl.config.icon}}" alt="Icon">       
+      </div>
+  </div>
+</div>
+
+
+

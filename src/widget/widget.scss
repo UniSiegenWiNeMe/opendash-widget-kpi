@@ -1,0 +1,101 @@
+.opendash-widget-kpi-overview {
+	#widget-content-header {
+		height:30%;
+	}
+	#widget-content-header-image {
+		float:left;
+		width:35%;
+		height:100%;
+	}
+	#widget-content-header-image-img {
+		max-height:100%;
+		padding:5%;
+	}
+	#widget-content-header-text {
+		float:left;
+		width:65%;
+		height:100%;
+	}
+	#widget-content-header-text-border {
+		width:100%;
+		height:100%;
+		margin:auto;
+	}
+	#widget-content-content {
+		height:70%;
+	}
+	#widget-content-content-chart {
+		float:left;
+	   	width:65%;
+		height:100%;
+	}
+	
+	#widget-content-content-trend {
+		float:left;
+		width:35%;
+		height:100%;
+	}
+	#widget-content-content-trend-image {
+		height:60%;
+		display: flex;
+	}
+	#widget-content-content-trend-text {
+		height:20%;
+	}
+	.widget-content-content-trend-image-img {
+		max-height:100%;
+		margin: auto;
+	}
+	#widget-content-content {
+		display:none;
+	}
+	#widget-content-header {
+		height:100%;
+	}
+	#widget-content-header-image {
+		display:flex;
+	}
+	#widget-content-header-image-img {
+		margin:auto;
+	}
+	#widget-content-header-text {
+		display:flex;
+	}
+	#widget-content-header-text-border {
+		height:50%;
+	}
+}
+
+
+
+
+/* 2x2 Widget */
+.od-widget--width--2.od-widget--height--2 {
+	.opendash-widget-kpi-overview {
+		#widget-content-header-image {
+			display:none;
+		}
+		#widget-content-header-text {
+			width:100%;
+		}
+		#widget-content-content {
+			display:none;
+		}
+		#widget-content-header {
+			height:100%;
+		}
+		#widget-content-header-image-img {
+			margin:auto;
+		}
+		#widget-content-header-text {
+			display:flex;
+		}
+		#widget-content-header-text-border {
+			height:50%;
+		}
+	}
+}
+
+
+	
+

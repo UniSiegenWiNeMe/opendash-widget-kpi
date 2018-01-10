@@ -1,0 +1,26 @@
+<label>Gerät auswählen:</label>
+<select ng-model="$ctrl.config.item">
+    <option ng-repeat="option in $ctrl.devices" value="{{option.value}}">{{option.name}}</option>
+</select>
+<label>Einheit:</label>
+<select ng-model="$ctrl.config.type">
+  <option value="0" selected>V</option>
+  <option value="1">W</option>
+  <option value="2">kWh</option>
+  <option value="3">COS-Phi</option>
+  <option value="4">m3</option>
+  <option value="5">°C</option>
+</select>
+<label>Icon Auswahl:</label>
+<select ng-model="$ctrl.config.icon">
+  <option value="/assets/vendor/opendash-widget-iot-kpi/assets/bulb.png" selected>Lampe</option>
+  <option value="/assets/vendor/opendash-widget-iot-kpi/assets/wet.png">Tropfen</option>
+  <option value="/assets/vendor/opendash-widget-iot-kpi/assets/pressure.png">Druck</option>
+  <option value="/assets/vendor/opendash-widget-iot-kpi/assets/tree.png">Baum</option>
+  <option value="/assets/vendor/opendash-widget-iot-kpi/assets/temperature.png">Temperature</option>
+</select>
+<label>Icon:</label>
+<select ng-model="$ctrl.config.iconside">
+  <option selected>Links</option>
+  <option>Rechts</option>
+</select>
