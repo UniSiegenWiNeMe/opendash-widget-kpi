@@ -1,7 +1,7 @@
 {
-  "name": "opendash-widget-iot-kpi",
+  "name": "opendash-widget-kpi",
   "version": "1.0.0",
-  "author": "Nico Castelli <null>",
+  "author": "Nico MIT <nico.castelli@uni-siegen.de>",
   "license": "UNLICENSED",
   "private": true,
   "main": "src/index.js",
