@@ -7,12 +7,17 @@ const UNITS = {
   5: '°C',
 };
 
+let $data;
+
 export default class WidgetController {
 
-  static $inject = ['od.data.service', '$element', '$scope', 'moment', 'lodash', 'od.event.service'];
+  static $inject = ['od.data.service'];
 
-  constructor($data, $element, $scope, moment, _, $event) {
+  constructor(data) {
+    $data = data;
+  }
 
+  $onInit() {
     this.state.alert = false;
 
     if (!this.config.item || !this.config.iconside) {
@@ -20,46 +25,39 @@ export default class WidgetController {
       return;
     }
 
-    
-      if (this.config.iconside == "Links") {
-        this.left = true;
-        this.right = false;
-      } else {
-        this.left = false;
-        this.right = true;
-      }
-    
- 
+    if (this.config.iconside == "Links") {
+      this.left = true;
+      this.right = false;
+    } else {
+      this.left = false;
+      this.right = true;
+    }
+
     let newValue = this.config.item;
-      // Cool Angular.. mach halt nen String draus.
-      // settings.controller.js:10
-      // settings.template.html:2-3
-      newValue = JSON.parse(newValue);
+    // Cool Angular.. mach halt nen String draus.
+    // settings.controller.js:10
+    // settings.template.html:2-3
+    newValue = JSON.parse(newValue);
 
-      let id = newValue[0];
-      let valueIndex = newValue[1];
+    let id = newValue[0];
+    let valueIndex = newValue[1];
 
-      let item = $data.get(id);
+    let item = this.$dataStore.get(id);
 
-      if (!item || !item.value) {
-        console.error('KPI Widget Item Not Found..', id);
-        return;
-      }
+    if (!item || !item.value) {
+      console.error('KPI Widget Item Not Found..', id);
+      this.state.config = false;
+      return;
+    }
 
-      item.liveValues((values) => {
-        
-        
-        
-        
-        
-        let value = parseFloat(values.value[0]).toFixed((this.config.type === 0) ? 1 : 2);
-        
-        this.dataValue = `${value} ${UNITS[this.config.type]}`;
-        var that = this;
-        setTimeout(function() {window.dispatchEvent(new Event('resize'));}, 200);
-        this.timeValue = "";
-        this.loading = false;
-      });
-    
+    item.liveValues((values) => {
+      let value = parseFloat(values.value[0]).toFixed((this.config.type === 0) ? 1 : 2);
+
+      this.dataValue = `${value} ${UNITS[this.config.type]}`;
+      var that = this;
+      setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 200);
+      this.timeValue = "";
+      this.loading = false;
+    });
   }
 }
