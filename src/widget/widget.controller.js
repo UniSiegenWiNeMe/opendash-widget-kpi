@@ -7,11 +7,19 @@ const UNITS = {
   5: '°C',
 };
 
+const ICONS = {
+  bulb: require('../../assets/bulb.png'),
+  wet: require('../../assets/wet.png'),
+  pressure: require('../../assets/pressure.png'),
+  tree: require('../../assets/tree.png'),
+  temperature: require('../../assets/temperature.png'),
+};
+
 let $data;
 
 export default class WidgetController {
 
-  static $inject = ['od.data.service'];
+  static get $inject() { return ['opendash/services/data']; }
 
   constructor(data) {
     $data = data;
@@ -42,7 +50,7 @@ export default class WidgetController {
     let id = newValue[0];
     let valueIndex = newValue[1];
 
-    let item = this.$dataStore.get(id);
+    let item = $data.get(id);
 
     if (!item || !item.value) {
       console.error('KPI Widget Item Not Found..', id);
@@ -59,5 +67,9 @@ export default class WidgetController {
       this.timeValue = "";
       this.loading = false;
     });
+  }
+
+  getIcon() {
+    return ICONS[this.config.icon];
   }
 }
